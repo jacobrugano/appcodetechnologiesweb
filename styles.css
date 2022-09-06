@@ -1,0 +1,672 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
+
+:root{
+  --red:#EE3623;
+}
+
+*{
+  font-family: 'Roboto', sans-serif; /* To set the font-family for the entire website */
+  margin:0; padding: 0;
+  box-sizing: border-box;
+  border:none; outline: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-weight: 500; /* The font weight for all wordings in the entire website */
+  transition:.5s linear;
+}
+
+*::selection{  /*To define the color when highlighting anything */
+  background:var(--red); /*The highlighting color should be red */
+}
+
+html{
+  font-size: 62.5%; /*font-size of the entire website wordings*/
+  overflow-x: hidden;
+}
+
+.nav-toggle{
+  transform: translateX(-30rem); /* X so that it can toggle from left to right, Y is for top down */
+                                  /* -30rem to determine the size of the toggle area */
+}
+header .menu{
+  position: fixed; /* To make the icon always fixed on the webpage */
+  top:1.5rem; right:2rem; /* To set distance of the icon from the sides */
+  font-size: 2.5rem; /* To set the size of the icon */
+  color:var(--red); /* To set the size of the icon */
+  background:rgb(19, 5, 5); /* To set the background color insode the icon */
+  box-shadow: .5rem .5rem .5rem rgba(128, 18, 11, 0.3); /* To set the box-shadow of the menu icon */
+  padding:.3rem 1.4rem; /* To set the size of the menu icon */
+  border-radius: 7px; /* To set the boarders of the menu-icon to be circular */ 
+  cursor: pointer; /* For the cursor to be a pointer when on hover on the menu icon */
+  z-index: 1000;
+  overflow: hidden;
+}
+
+header .navbar{
+  height: 100vh; /* Size of the navbar from the top, to cover the whole screen*/
+  width:30rem;  /* Width of the navbar from left to right*/
+  position: fixed; /* To fix the navbar on the right */
+  top:0; right:0; /* Distance of the navbar from the top */
+  background:rgb(46, 4, 4); /* Background of the navbar */
+  display: none;
+}
+
+header .navbar ul{  /* To style the dropdown words inside the navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  height:100%;
+  list-style: none;
+}
+
+header .navbar ul li{
+  margin:1.1rem; /* To determine the distance/margins between the words inside the navbar */
+  animation:fadeIn .5s linear backwards; /* To determine how the wordings inside the navbar fade in */
+  animation-delay: calc(.1s * var(--i)); /* To determine the delay as the wordings fade in */
+}
+
+@keyframes fadeIn{
+  0%{
+    transform: translateY(-8rem);
+    opacity: 0;
+  }
+}
+
+header .navbar ul li a{
+  font-size: 2rem; /* To determine the font-size of the wordings inside the navbar */
+  color:rgb(241, 231, 231); 
+}
+
+header .navbar ul li a:hover{
+  color:red; /* To determine the hover color when you hover over the wordings on navbar */
+}
+
+.fa-times{
+  transform:rotate(180deg); /* To determine how the icon rotates when clicked to display menu */
+  /* transform:rotate(180deg) skew(180deg); */
+}
+
+.home{ /*Settings of the homepage before adding the video */
+  position: relative;
+  min-height: 100vh;
+  z-index: 0;
+}
+
+.home .video-container video{ 
+  position: absolute;  /* To make the video move up on scrolling */
+  top:0; left: 0; /* To let the video have no margins */
+  height: 100%; /* Height of the video on the view box */
+  width: 100%; /* Width of the video on the view box */
+  object-fit: cover; /* To make the video cover the whole area on the view page */
+  z-index: -1;
+}
+
+.home .content{
+  min-height: 100vh; /* To set the height of the home top page */
+  width: 50rem; /* To set the width of select form area */
+  background:rgba(46, 48, 51, 0.1); /* To set the background color of the box area */
+  backdrop-filter: blur(.9rem); /* to determine the level of blur of the box background */
+  text-align: center;
+  padding:4rem 4rem; /* Padding of the box inside the faded box-area*/
+}
+
+.home .content h1{
+  font-size: 4rem; 
+  font-weight: 900;
+  padding-top: 1vh; /* Padding of the box inside from the top */
+  color:rgb(1, 24, 66); /* Color of the heading */
+  text-transform: uppercase; /* To make the entire heading into uppercase */
+}
+
+.home .content h3{
+  font-size: 2.5rem; 
+  color:rgb(1, 24, 66);
+  font-weight: lighter; /* To lighten the weight of the font */
+
+}
+
+.home .content .form-container form{
+  width: 90%; /* Width of the form inside highlight area */
+  background:rgb(112, 111, 111); /* To determine the background color of the box */
+  padding: 1rem 1rem; /* The padding of the wording and box from the edges of the box */
+  margin-top: 3rem;
+  border-radius: 3rem;
+  box-shadow: 0 0.6rem .5rem .7rem rgba(10, 10, 10, 0.3);
+  opacity: 0.7; /* The opacity and transparency of the box */
+  margin-left: 10px;
+}
+
+.home .content .form-container form h3{
+  font-size: 1.8rem; /* To determine the font-size of the h3 */
+  padding:2rem 1rem; /* To determine padding of the heading from the edges */
+  color: rgb(1, 24, 66); /* To determine the color of the heading */
+  font-weight: 500; /* To determine the weight of the h3 */
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.home .content .form-container form span{
+  font-size: 1.5rem; /* To determine the font sixe of the heading */
+  display: block;
+  padding:1rem 0;  /* To determine the padding/margins of the sub-topics from each other */
+  color: whitesmoke;
+  text-align: left;
+  font-weight: 600;
+}
+
+.home .content .form-container form input{
+  height:3rem; /* Height of the typing boxes */
+  font-weight: 600;
+  width: 100%; /* width of the typing boxes */
+  padding:0 1rem; /* padding of the wordings inside the typing boxes */
+  font-size: 1.2rem; /* font-size of the wordings inside the typing boxes */
+  background:rgb(165, 164, 164); /* background of the wordings inside the typing boxes */
+  border-radius: .6rem;
+  box-shadow: .2rem .2rem  .2rem .2rem rgb(20, 9, 9);
+} 
+
+.home .content .form-container form .btn{ /* styling for the submit button */
+  width: 15rem;
+  background-color: red;
+  margin:1.5rem 0;
+}
+.heading{
+  text-align: center; /* To place the heading at the center*/
+  padding:.5rem 1rem;/**/
+  padding-top: 2rem;/* heading padding from the top */
+  font-size: 3.5rem; /*font for the heading */
+  color:var(--red); /* color for the heading */
+  text-transform: uppercase;
+}
+
+.title{ /*styling for the title just after courses */
+  text-align: center;
+  padding:0rem 1rem;
+  font-size: 2.5rem;
+  color:#666;
+  font-weight: 800;
+}
+.btn{
+  height:3.5rem;
+  width: 5rem;
+  background: var(--red);
+  color:#fff;
+  border-radius: .5rem;
+  font-size: 1.7rem;
+  cursor: pointer;
+  margin:1rem 0;
+  box-shadow: 0 .6rem .6rem rgb(20, 9, 9);
+  opacity: .9;
+}
+
+.btn:hover{
+  opacity: 0.5; /* opacity when on hover on the button */
+}
+
+.feature{
+  background: #2C3A47; /* Background color for the card div */
+}
+
+.feature .title{
+  color:#eee;
+}
+
+.feature .card-container{
+  display: flex; /* To make the cards stay accross instead of top to down */
+  justify-content: center;
+  flex-wrap: wrap;
+  padding:2rem 0;
+}
+
+.feature .card-container .card{
+  height:50rem; /* Height of the card */
+  width:30rem; /* Weight of the card */
+  margin:2rem 3rem; /* Distance of the cards between each other */
+  position: relative; /* To place the cards in the div */
+  overflow: hidden; /* To hide the overflow explanations on the cards as they appear on hover */
+  box-shadow: .6rem  .6rem .6rem rgb(68, 66, 66); /* box-shadow of the card */
+  border-radius: .9rem; /* box-radius of the card */
+}
+
+.feature .card-container .card img{  /* Styling for the image inside the card */
+  height:100%;
+  width:100%;
+  object-fit: cover;
+}
+
+.feature .card-container .card .info{
+  height:100%;
+  width: 100%;
+  position: absolute; /* So that when you hover, the content appears */
+  bottom:0; left: 0; /* To make the content appear SLOWLY from below */
+  background:linear-gradient(transparent, #000); /* Background of the card on which they are appearing through */
+  padding: 0 2rem;
+  padding-top: 80%; /* Distance from the top after they appear*/
+}
+
+
+/* CODE TO MAKE THE CONTENT INSIDE THE CARD APPEAR ON HOVER
+1) At the top just above, change frombottom:0; left: 0; to bottom:-100%; left: 0;
+2) Activate this below
+.feature .card-container .card:hover .info{
+  bottom:0%;
+} */
+
+
+.feature .card-container .card .info h3{ /* Styling for the heading inside the card */
+  font-size: 3rem;
+  color:#fff;
+}
+
+.feature .card-container .card .info .stars i{ /* Styling for the stars inside the card */
+  font-size: 1.5rem;
+  color:var(--red);
+  padding:1rem 0;
+}
+
+.feature .card-container .card .info p{ /* Styling for the paragraph inside the card */
+  font-size: 1.5rem;
+  color:#eee;
+}
+
+.feature .card-container .card .info .btn{  /* Styling for the button inside the card */
+  box-shadow: .6rem  .6rem .6rem rgb(29, 28, 28);
+}
+
+.about .row{ /* Styling for the row */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin:2rem auto;
+  padding:2rem;
+}
+
+.about .row .image img{
+  height:60vh; /* height of the image */
+  width:40vw; /* width of the image */
+  box-shadow: .6rem  .6rem .6rem rgb(68, 66, 66); /* box-shadow of the image */
+  border-radius: .9rem; /* box-radius of the image */
+  margin-right: 30px; /* distance between the image and the wording on the right */
+}
+
+.about .row .content h3{  /* Styling for the Heading in the ABOUT US PAGE */
+  font-size: 3rem;
+  color:var(--red);
+}
+
+.about .row .content p{  /* Styling for the content in the ABOUT US PAGE */
+  font-size: 1.7rem;
+  color:#666;
+  padding:1rem 0;
+}
+
+.about .box-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#gallery {
+  background:rgb(224, 224, 224);
+}
+
+.about .box-container .box{
+  margin:3rem; /* Margin between each box and the other */
+  height:15rem; /* Height of each box */
+  width:25rem; /* Width of each box */
+  border-radius: 1rem; /* border-radius of the boxes themselves */
+  background:var(--red); /* color of the boxes themselves */
+  text-align: center;
+  color: rgb(27, 13, 13); /* Color of everything inside the small boxes */
+  box-shadow: .3rem  .3rem .3rem rgb(68, 66, 66); /* box-shadow of the boxes */
+}
+
+.about .box-container .box i{
+  font-size: 5rem; /* Size of the icons inside the boxes */
+  margin:2rem 0; /*The margins between icons and words inside the boxes */
+}
+
+.about .box-container .box h3{
+  font-size: 2rem; /* Font size of the words inside the boxes*/
+}
+
+.gallery{
+  background:#f9f9f9;
+}
+
+.gallery .box-container{
+  padding:0.5rem 0; /* Padding of the boxes in the gallery section from each other */
+}
+
+.gallery .box-container .box{
+  width:75%; /* Width of the boxes in the gallery section */
+  margin:2rem auto;   /* Margin of the boxes in the gallery section from each other */
+  border-radius: 1rem; /* border-radius of the boxes in the gallery section */
+  box-shadow: .5rem .5rem .5rem rgba(0,0,0,.3);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:rgb(204, 204, 204); /* Background of the boxes in the gallery section */
+}
+
+
+.gallery .box-container .box .image{ /* Styling of the images inside the gallery section */
+  height: 25rem;
+  width:50%;
+}
+
+.gallery .box-container .box .image img{ /* Styling of the images inside the gallery section */
+  height: 100%;
+  width:100%;
+  object-fit: cover;
+}
+
+.gallery .box-container .box .content{ /* Styling of the contents inside the gallery section */
+  height: 70%;
+  width:50%; /* Width that should be covered by the contents inside the gallery boxes */
+  padding:2rem; /* Padding of the items inside the boxes in the gallery section */
+}
+
+.gallery .box-container .box:nth-child(even){
+  flex-flow: row-reverse;
+}
+
+.gallery .box-container .box:nth-child(even) .content{
+  text-align: right;
+}
+
+.gallery .box-container .box .content h3{
+  color:var(--red);  /* Color of the headings inside the boxes in the gallery section */
+  font-size: 3rem; /* Font size of the headings inside the boxes in the gallery section */
+}
+
+.gallery .box-container .box .content p{ /* Styling of the paragraphs inside the gallery section boxes */
+  color:#666;
+  font-size: 1.5rem;  /* Font-size of the paragraphs inside the gallery section boxes */
+  padding:1rem 0;  /* Padding of the paragraphs inside the gallery section boxes */
+}
+
+.review .box-container{ /* Styling of the review section */ 
+  display: flex; /* To make the cards be organized from left to right instead of top to down */
+  justify-content: center; /* To make the cards be at the center */
+  flex-wrap: wrap;
+  padding:2rem 0; /* Padding of the contents and cards inside the review section */ 
+}
+
+.review .box-container .box{
+  width: 30rem; /* Width of the cards inside the review section */
+  height: 100%;
+  text-align: center;
+  padding: 0 2rem; /* Padding of the cards inside the review section */
+  margin:4rem 1.5rem; /* Margins of the cards inside the review section */
+  box-shadow: .3rem .3rem .3rem .3rem rgba(0,0,0,.3);
+}
+
+.review .box-container .box i{
+  font-size: 5rem; /* Font size of the bracket signs */
+  margin-top: -3rem; /* Margin from top of the bracket signs, -3 so that it goes outside of the box */
+  color:rgb(129, 3, 3);  /* Color of the bracket signs */
+  opacity: .7; /* Opacity of the bracket signs */
+}
+
+.review .box-container .box p{ /* Styling of the paragraph content inside the review section */ 
+  color:#666; /* Color of the paragraph content inside the review section */ 
+  font-size: 1.4rem; /* Font size of the paragraph content inside the review section */ 
+  padding:2rem 0; /* Padding to the left and to the right 
+                    of the paragraph content inside the review section */ 
+}
+
+.review .box-container .box .user{ /* Styling of the seperating line inside the reviews cards */ 
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding:.5rem 0;
+  border-top: .2rem solid #3334; /* To determine the color and width of the line */
+}
+
+.review .box-container .box .user img{ /* Styling of the users' image inside the reviews cards */ 
+  height:4rem; /* Height of the image */
+  width:4rem; /* width of the image */
+  border-radius: 50%;
+  object-fit: cover;
+  margin:.8rem 1rem; /* Margins around the image */
+  box-shadow: .3rem .3rem .3rem .3rem rgba(5, 0, 0, 0.3);
+}
+
+.review .box-container .box .user .info h3{ /* Styling of the user's name inside the reviews cards */ 
+  color:var(--red);
+  font-size: 1.8rem;
+}
+
+.review .box-container .box .user .info span{ /* Styling of the date inside the reviews cards */ 
+  color:#666;
+  font-size: 1.5rem;
+}
+
+.contact{
+  background: #2C3A47; /* Background color for the contacts div */
+}
+
+.contact .title{
+  color:#eee;
+}
+
+.contact form{
+  width:80%; /* Width of the contacts form */
+  text-align: center;
+  padding:4rem 0; /* Padding of the contacts form left and top */
+  margin:0 auto; /* Margins of the contacts form */
+}
+
+.contact form .inputBox{ /* Styling for the contacts form */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contact form .inputBox input{  /* Styling for the typing area in the contacts form */
+  width: 49%;
+  height:4rem
+}
+
+.contact form input, textarea{ /* Styling for the typed content in the contacts form */
+  padding:0 1rem; /* Padding left and top of the texted content in the text area */
+  font-size: 1.7rem; /* Font size of the texted content in the text area */
+  margin:1rem 0;  /* margin left and top of the text box from each other */
+  color:black;  /* Color of the texted content in the text area */
+  border-radius: 1rem; /* Box radius of the contact boxes*/
+  box-shadow:  .3rem .3rem .3rem .3rem rgba(7, 4, 4, 0.3); /* Box shadow of the contact boxes*/
+}
+
+.contact form textarea{ /* Styling for the typed content in the text area in the
+                           message section in the contacts form */
+  padding:1rem;
+  height:20rem;
+  resize: none;
+  width: 100%;
+}
+
+.contact form .btn{
+  box-shadow:  .3rem .3rem .3rem .3rem rgba(5, 0, 0, 0.3);
+  color:#fff; /* To set the color of the name send inside the submit button */
+  opacity: 1; /* To set the opacity of the submit button */
+  width: 8%; /* To set the width of the submit button */
+}
+
+.contact form .btn:hover{
+  opacity: .8;
+}
+
+.footer{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding:2rem 0;
+}
+
+.footer .box{
+  width:30rem;
+  margin:2rem;
+  text-align: center;
+}
+
+.footer .box:nth-child(1){
+  text-align: left;
+}
+
+.footer .box h3{
+  font-size: 3rem;
+  color:var(--red);
+  padding:1rem 0;
+}
+
+.footer .box p{
+  color:#666;
+  font-size: 1.5rem;
+}
+
+.footer .box a{
+  color:#666;
+  font-size: 2rem;
+  display: block;
+  padding:.2rem 0;
+}
+
+.footer .box a:hover{
+  text-decoration: underline;
+}
+
+.footer .credit{
+  width: 85%;
+  padding-top: 1rem;
+  font-size: 2rem;
+  color:#666;
+  text-align: center;
+  border-top: .2rem solid #3333;
+}
+
+.footer .credit span{
+  color:var(--red);
+}
+
+.newsletter{
+  background:var(--red);
+  padding:3rem;
+}
+
+.newsletter .box{
+  width: 100%;
+  padding:2rem;
+  text-align: center;
+  border-radius: 1rem;
+  background:#f9f9f9;
+}
+
+.newsletter .box h1{
+  color:var(--red);
+  font-size: 4rem;
+}
+
+.newsletter .box p{
+  color:#666;
+  font-size: 1.8rem;
+}
+
+.newsletter .box form{
+  background:#eee;
+  width:60%;
+  margin:2rem auto;
+  padding:.5rem 0;
+  height:5rem;
+  border-radius: 5rem;
+}
+
+.newsletter .box form input[type="email"]{
+  width: 71%;
+  background:none;
+  padding:.5rem;
+  font-size: 1.5rem;
+}
+
+.newsletter .box form .btn{
+  height:90%;
+  width: 26%;
+  border-radius: 5rem;
+  margin:.1rem 0;
+  box-shadow: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* media queries  */
+
+@media (max-width:500px){
+
+  html{
+    font-size: 50%;
+  }
+
+  .home .content{
+    width: 100%;
+  }
+
+  .contact form{
+    width: 90%;
+  }
+
+  .contact form .inputBox input{
+    width: 100%;
+  }
+}
+
+@media (max-width:768px){
+
+  html{
+    font-size: 55%;
+  }
+
+  .about .row{
+    flex-flow: column;
+    width:90%;
+  }
+
+  .about .row .image img{
+    width: 90vw;
+  }
+
+  .gallery .box-container .box{
+    flex-flow: column;
+    width: 90%;
+  }
+
+  .gallery .box-container .box:nth-child(even){
+    flex-flow: column;
+  }
+
+  .gallery .box-container .box .image{
+    width: 100%;
+  }
+
+  .gallery .box-container .box .content{
+    width: 100%;
+  }
+
+  .gallery .box-container .box:nth-child(even) .content{
+    text-align: left;
+  }
+
+  .newsletter .box form{
+    width: 100%;
+  }
+
+}
